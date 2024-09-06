@@ -1,6 +1,6 @@
 plugins {
     id("com.android.library")
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 34
+//        targetSdk = 34
 //        versionCode = 1
 //        versionName = "1.0"
 
@@ -39,12 +39,23 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.core:core-ktx:1.13.1")
+
+    // JUnit for testing
+    testImplementation( "junit:junit:4.13.2")
+    androidTestImplementation ("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation( "androidx.test.espresso:espresso-core:3.6.1")
+
+    // AndroidX Libraries
+    implementation ("androidx.appcompat:appcompat:1.7.0")
+    implementation ("com.google.android.material:material:1.12.0")
+    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
+
+    // Lifecycle Components
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.8.4")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
+
+    // Navigation Components
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.7.7")
 }
